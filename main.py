@@ -9,8 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 api_key = os.getenv('GOOGLE_API_KEY')
-tess_path = os.getenv("TESSERACT_PATH")
-pytesseract.pytesseract.tesseract_cmd = tess_path
+pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
 
 st.set_page_config(page_title="Quiz Generation App", layout="wide")
