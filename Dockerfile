@@ -4,7 +4,7 @@ FROM python:3.12-slim
 # Set the working directory
 WORKDIR /app
 
-# Install system dependencies
+# Install system dependencies including Tesseract
 RUN apt-get update && \
     apt-get install -y tesseract-ocr && \
     apt-get clean && \
