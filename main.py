@@ -57,7 +57,7 @@ def generate_quiz_from_text(text):
     st.info("Generating quiz from the extracted text...")
     genai.configure(api_key=api_key)
    
-    prompt = f"Make a 10 MCQ type of quiz with options on new line. If two or more files, divide the number of questions accordingly. For a single text, generate 10 questions(do not show answer key): {text}"
+    prompt = f"Make a 10 MCQ type of quiz with options on new line. If two or more files, divide the number of questions accordingly. For a single text, generate 10 questions(do not show answer key) and also provide learning path for the related content using hyperlinks at the bottom: {text}"
    
     model = genai.GenerativeModel('gemini-pro')
     res = model.generate_content(prompt)
