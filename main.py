@@ -9,7 +9,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 api_key = os.getenv('GOOGLE_API_KEY')
-pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
+tess_path = os.getenv("TESSERACT_PATH")
+pytesseract.pytesseract.tesseract_cmd = tess_path
 
 
 st.set_page_config(page_title="Quiz Generation App", layout="wide")
@@ -57,7 +58,7 @@ def generate_quiz_from_text(text):
     st.info("Generating quiz from the extracted text...")
     genai.configure(api_key=api_key)
    
-    prompt = f"Make a 10 MCQ type of quiz with options on new line. If two or more files, divide the number of questions accordingly. For a single text, generate 10 questions(do not show answer key) and at last, give a learning path with hyperlinks for the realted content: {text}"
+    prompt = f"Make a 10 MCQ type of quiz with options on new line. If two or more files, divide the number of questions accordingly. For a single text, generate 10 questions(do not show answer key): {text}"
    
     model = genai.GenerativeModel('gemini-pro')
     res = model.generate_content(prompt)
