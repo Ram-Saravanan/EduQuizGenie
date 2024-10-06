@@ -1,4 +1,6 @@
-python-dotenv
-google-generativeai
-pdfplumber
+streamlit
 pytesseract
+Pillow
+pdfplumber
+google-generativeai
+python-dotenv
